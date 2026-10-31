@@ -4,82 +4,93 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#0a2342">
-<title>الدعم الفني والصيانة الفورية | معدات STILL الكهربائية</title>
+<title>دعم فني وصيانة وقطع غيار أصلية | معدات STILL الكهربائية</title>
+<script>document.documentElement.classList.add('js')</script>
 <style>
 :root{--navy:#0a2342;--deep:#07162b;--orange:#f58220;--wa:#25d366;--line:rgba(255,255,255,.12)}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--deep);color:#fff;font-family:"Cairo","Tajawal","Segoe UI",Tahoma,Arial,sans-serif;line-height:1.6;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
 a{color:inherit;text-decoration:none}
-.wrap{width:min(100%,560px);margin:0 auto;padding:0 18px}
+.wrap{width:min(100%,560px);margin:0 auto;padding-inline:20px}
 /* الهيدر */
-.top{position:sticky;top:0;z-index:20;background:rgba(7,22,43,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:20;background:rgba(7,22,43,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
 .brand{font-weight:800;font-size:17px}.brand b{color:var(--orange);letter-spacing:.08em;margin-inline-start:4px}
 .call{background:var(--orange);color:#fff;font-weight:800;font-size:14px;padding:.45em 1.1em;border-radius:99px}
 /* الهيرو */
-.hero{position:relative;min-height:calc(100svh - 56px);overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#15406f 0%,var(--navy) 55%,var(--deep) 100%);display:flex}
-.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:repeating-linear-gradient(135deg,var(--orange) 0 14px,#0a2342 14px 28px);opacity:.9;z-index:3}
-.hero-in{position:relative;z-index:2;width:100%;padding:26px 0 40px;display:flex;flex-direction:column;justify-content:flex-start}
-.kicker{display:inline-block;align-self:flex-start;font-size:13px;font-weight:700;color:var(--orange);border:1px solid var(--orange);border-radius:99px;padding:.15em .9em;margin-bottom:12px}
-h1{font-size:clamp(30px,9.4vw,46px);line-height:1.2;font-weight:800;margin-bottom:18px}
+.hero{position:relative;overflow:hidden;background:radial-gradient(120% 70% at 50% 0%,#15406f 0%,var(--navy) 55%,var(--deep) 100%)}
+.hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:5px;background:repeating-linear-gradient(135deg,var(--orange) 0 14px,#0a2342 14px 28px);opacity:.9}
+.hero-in{padding-top:24px;padding-bottom:34px}
+.kicker{display:inline-block;font-size:13px;font-weight:700;color:var(--orange);border:1px solid var(--orange);border-radius:99px;padding:.15em .9em;margin-bottom:12px}
+h1{font-size:clamp(30px,9.2vw,44px);line-height:1.22;font-weight:800}
 h1 span{color:var(--orange)}
-.pt{background:rgba(10,35,66,.72);backdrop-filter:blur(4px);border:1px solid var(--line);border-radius:16px;padding:13px 15px;margin-bottom:11px;display:flex;gap:12px;align-items:flex-start}
+/* مسرح المعدة */
+.stage{position:relative;height:214px;margin:2px -20px 6px;overflow:hidden}
+.floor{position:absolute;left:50%;bottom:10px;width:190px;height:20px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.55),rgba(0,0,0,0));opacity:0;animation:fade .6s 1.4s forwards}
+.truck{position:absolute;left:50%;bottom:16px;width:150px;margin-left:-75px;animation:drive 1.9s .2s cubic-bezier(.15,.7,.25,1) both}
+.truck img{display:block;width:100%;height:auto;filter:drop-shadow(0 10px 14px rgba(0,0,0,.45))}
+.shine{position:absolute;inset:0;-webkit-mask:url(img/pallet_truck.png) center/100% 100% no-repeat;mask:url(img/pallet_truck.png) center/100% 100% no-repeat;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.9) 50%,transparent 65%);background-size:300% 100%;background-position:0 0;animation:sheen 5.5s 2.3s infinite}
+.pt{background:rgba(10,35,66,.72);backdrop-filter:blur(4px);border:1px solid var(--line);border-radius:16px;padding:13px 15px;margin-top:11px;display:flex;gap:12px;align-items:flex-start}
 .pt .ic{flex:none;width:38px;height:38px;border-radius:12px;background:var(--orange);display:grid;place-items:center;font-size:20px}
 .pt h3{font-size:16px;font-weight:800;line-height:1.45}
 .pt p{font-size:14px;color:#c9d9ec}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .chips span{font-size:12.5px;font-weight:700;background:rgba(245,130,32,.16);border:1px solid rgba(245,130,32,.55);color:#ffd2a6;border-radius:99px;padding:.15em .8em}
-.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
+.acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
 .act{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;min-height:104px;border-radius:18px;padding:12px 8px;font-weight:800;font-size:15px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);line-height:1.35}
 .act .e{font-size:30px;line-height:1}
 .act small{font-weight:600;font-size:11.5px;color:#cfe0f3}
 .act.p{background:linear-gradient(180deg,#ff9a3c,var(--orange));border-color:transparent;box-shadow:0 10px 26px rgba(245,130,32,.38)}
 .act.p small{color:#fff3e6}
-/* الرافعة في الخلفية */
-.bgveh{position:absolute;left:0;right:0;bottom:5px;height:62%;z-index:1;pointer-events:none;overflow:hidden}
-.drive{position:absolute;left:0;bottom:0;width:min(105vw,520px);opacity:0;transform:translateX(100vw)}
-.roll{position:relative}
-.roll img{display:block;width:100%;height:auto;opacity:.4}
-.beacon{position:absolute;left:69%;top:7.7%;width:14%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,214,120,1),rgba(255,160,40,0) 68%);mix-blend-mode:screen;animation:blink .9s steps(1,end) infinite}
 /* الأقسام */
-section.sec{padding:34px 0}
-h2{font-size:24px;font-weight:800;margin-bottom:16px}h2 span{color:var(--orange)}
-.steps{display:grid;gap:11px}
-.st{display:flex;gap:14px;align-items:center;background:var(--navy);border:1px solid var(--line);border-radius:16px;padding:14px}
-.st b{flex:none;width:40px;height:40px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:19px}
+section.sec{padding:36px 0 40px}
+h2{font-size:24px;font-weight:800;margin-bottom:18px}h2 span{color:var(--orange)}
+.steps{display:grid;gap:14px;perspective:900px}
+.st{display:flex;gap:14px;align-items:center;background:var(--navy);border:1px solid var(--line);border-radius:16px;padding:15px;transform-origin:50% 100%}
+.st b{flex:none;width:42px;height:42px;border-radius:50%;background:var(--orange);display:grid;place-items:center;font-size:19px}
 .st p{font-weight:700;font-size:15.5px}.st small{display:block;font-weight:500;font-size:13px;color:#b9cde4}
-.cta{background:linear-gradient(180deg,#0f3260,var(--navy));border-top:1px solid var(--line);text-align:center;padding:36px 0 96px}
-.cta h2{margin-bottom:6px}.cta p.s{color:#c1d3e8;margin-bottom:18px;font-size:15px}
-.cta .acts{margin-top:0}
-.num{display:inline-block;direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:22px;letter-spacing:.04em;margin-top:18px;color:#fff}
+/* ظهور الكروت بالتتابع: بروز للأمام */
+.js .st{opacity:0;transform:perspective(700px) translateZ(-170px) translateY(34px) rotateX(24deg) scale(.88);filter:blur(3px)}
+.js .st.in{opacity:1;transform:perspective(700px) translateZ(0) translateY(0) rotateX(0) scale(1);filter:none;box-shadow:0 16px 30px rgba(0,0,0,.4);transition:opacity .5s ease var(--d,0s),transform .8s cubic-bezier(.2,1.25,.35,1) var(--d,0s),filter .5s ease var(--d,0s),box-shadow .8s ease var(--d,0s)}
+.js .st.in b{animation:pop .6s calc(var(--d,0s) + .3s) both}
+/* التواصل السفلي */
+.cta{background:linear-gradient(180deg,#0f3260,var(--navy));border-top:1px solid var(--line);text-align:center;padding:36px 0 100px}
+.cta h2{margin-bottom:6px}.cta p.s{color:#c1d3e8;font-size:15px}
+.num{display:inline-block;direction:ltr;unicode-bidi:isolate;font-weight:800;font-size:26px;letter-spacing:.04em;margin-top:14px;color:#fff;border-bottom:2px solid var(--orange);padding-bottom:2px}
 .foot{font-size:12.5px;color:#8fa6c0;margin-top:22px}
 .wa{position:fixed;left:16px;bottom:16px;z-index:30;width:60px;height:60px;border-radius:50%;background:var(--wa);display:grid;place-items:center;font-size:30px;box-shadow:0 8px 22px rgba(0,0,0,.4);animation:pulse 2.2s infinite}
-/* الحركة */
+.js .wa{opacity:0;transform:scale(.6);pointer-events:none;transition:opacity .3s,transform .3s}
+.js .wa.show{opacity:1;transform:none;pointer-events:auto}
+/* ظهور الهيرو */
 .rv{opacity:0;transform:translateY(18px);animation:rv .7s cubic-bezier(.2,.9,.3,1) forwards}
-.d1{animation-delay:.1s}.d2{animation-delay:.3s}.d3{animation-delay:1.0s}.d4{animation-delay:1.8s}.d5{animation-delay:2.6s}
-.drive{animation:patrol 18s linear 3.4s infinite}
-.roll{animation:bob .5s ease-in-out infinite alternate}
+.d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:1.4s}.d4{animation-delay:1.7s}.d5{animation-delay:2.0s}
 @keyframes rv{to{opacity:1;transform:none}}
-@keyframes patrol{0%{opacity:1;transform:translateX(100vw)}60%{opacity:1;transform:translateX(-110%)}100%{opacity:1;transform:translateX(-110%)}}
-@keyframes bob{to{transform:translateY(-.8%)}}
-@keyframes blink{0%{opacity:1}50%{opacity:0}}
+@keyframes fade{to{opacity:1}}
+@keyframes drive{0%{transform:translateX(115vw)}68%{transform:translateX(-3%)}84%{transform:translateX(1.2%)}100%{transform:translateX(0)}}
+@keyframes sheen{0%{background-position:0 0}28%,100%{background-position:100% 0}}
+@keyframes pop{0%{transform:scale(.4)}60%{transform:scale(1.25)}100%{transform:scale(1)}}
 @keyframes pulse{0%{box-shadow:0 8px 22px rgba(0,0,0,.4),0 0 0 0 rgba(37,211,102,.6)}70%{box-shadow:0 8px 22px rgba(0,0,0,.4),0 0 0 18px rgba(37,211,102,0)}100%{box-shadow:0 8px 22px rgba(0,0,0,.4),0 0 0 0 rgba(37,211,102,0)}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important}.rv{opacity:1;transform:none}.drive{opacity:1;transform:translateX(0)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.floor{opacity:1;transform:none}.js .st{opacity:1;transform:none;filter:none}}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <div class="brand">الدعم الفني <b>STILL</b></div>
+  <div class="brand">نادر لصيانة <b>STILL</b></div>
   <a class="call" href="tel:+201222422028">📞 اتصل الآن</a>
 </div></header>
 
 <section class="hero">
-  <div class="bgveh" aria-hidden="true"><div class="drive"><div class="roll"><img src="img/forklift_tag.png" alt=""><i class="beacon"></i></div></div></div>
   <div class="wrap hero-in">
     <span class="kicker rv d1">معدات STILL الكهربائية</span>
-    <h1 class="rv d2">الدعم الفني<br><span>والصيانة الفورية</span></h1>
-    <div class="pt rv d3"><div class="ic">✅</div><div><h3>قطع غيار أصلية ومعتمدة</h3><p>بضمان جودة الوكيل</p></div></div>
+    <h1 class="rv d2">دعم فني وصيانة<br><span>وقطع غيار أصلية</span></h1>
+
+    <div class="stage" aria-hidden="true">
+      <span class="floor"></span>
+      <div class="truck"><img src="img/pallet_truck.png" alt=""><span class="shine"></span></div>
+    </div>
+
+    <div class="pt rv d3"><div class="ic">✅</div><div><h3>قطع غيار أصلية</h3><p>جودة أصلية تحافظ على أداء معداتك</p></div></div>
     <div class="pt rv d4"><div class="ic">⚡</div><div><h3>الصيانة الفورية للمعدات داخل الموقع</h3>
       <div class="chips"><span>توفير الوقت</span><span>توفير مصاريف الشحن</span><span>سرعة عودة المعدة للخدمة</span></div></div></div>
     <div class="acts rv d5">
@@ -100,15 +111,27 @@ h2{font-size:24px;font-weight:800;margin-bottom:16px}h2 span{color:var(--orange)
 
 <section class="cta"><div class="wrap">
   <h2>عندك معدة <span>محتاجة صيانة؟</span></h2>
-  <p class="s">كلمنا دلوقتي وابعت وصف المشكلة</p>
-  <div class="acts">
-    <a class="act" href="https://wa.me/201222422028?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D8%B9%D9%86%D8%AF%D9%8A%20%D9%85%D8%B4%D9%83%D9%84%D8%A9%20%D9%81%D9%8A%20%D9%85%D8%B9%D8%AF%D8%A9%20STILL%20%D9%88%D8%AF%D9%87%20%D9%88%D8%B5%D9%81%D9%87%D8%A7%3A%20" target="_blank" rel="noopener"><span class="e">📝</span>وصف المشكلة</a>
-    <a class="act p" href="https://wa.me/201222422028?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%85%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A%20%D9%81%D9%88%D8%B1%D9%8A%20%D9%84%D9%85%D8%B9%D8%AF%D8%A9%20STILL." target="_blank" rel="noopener"><span class="e">🛠️</span>اطلب الدعم الفني الآن</a>
-  </div>
+  <p class="s">كلمنا دلوقتي على الرقم</p>
   <a class="num" href="tel:+201222422028">+20 122 242 2028</a>
-  <p class="foot">صيانة معدات STILL الكهربائية</p>
+  <p class="foot">نادر لصيانة معدات STILL الكهربائية</p>
 </div></section>
 
 <a class="wa" href="https://wa.me/201222422028?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%D8%8C%20%D9%85%D8%AD%D8%AA%D8%A7%D8%AC%20%D8%AF%D8%B9%D9%85%20%D9%81%D9%86%D9%8A%20%D9%81%D9%88%D8%B1%D9%8A%20%D9%84%D9%85%D8%B9%D8%AF%D8%A9%20STILL." target="_blank" rel="noopener" aria-label="واتساب">💬</a>
+
+<script>
+(function(){
+  var sts=[].slice.call(document.querySelectorAll('.st'));
+  if(!('IntersectionObserver' in window)){sts.forEach(function(s){s.classList.add('in')});document.querySelector('.wa').classList.add('show');return}
+  var io=new IntersectionObserver(function(es){
+    es.filter(function(e){return e.isIntersecting}).forEach(function(e,i){
+      e.target.style.setProperty('--d',(i*.25)+'s');
+      e.target.classList.add('in');io.unobserve(e.target);
+    });
+  },{threshold:.35,rootMargin:'0px 0px -6% 0px'});
+  sts.forEach(function(s){io.observe(s)});
+  var wa=document.querySelector('.wa'),acts=document.querySelector('.hero .acts');
+  new IntersectionObserver(function(e){wa.classList.toggle('show',!e[0].isIntersecting)}).observe(acts);
+})();
+</script>
 </body>
 </html>
